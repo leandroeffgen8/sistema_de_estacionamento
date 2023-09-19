@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modelo</title>
+    <link rel="icon" type="image/.png" sizes="16x16"  href="./images/favicon.png">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <div class="container-fluid">
+        <h1>Parking Zone</h1>
+    </div>
+
+    <div class="container register">
+        <form action="" id="formId">
+            <div class="field-group">
+                <label for="modelo">Modelo do Veículo</label>
+                <input type="text" id="modelo" data-index="new" class="inputs-fields" required>
+            </div>
+
+            <div class="field-group">
+                <label for="placa">Placa do Veículo</label>
+                <input type="text" id="placa" data-index="new" class="inputs-fields" required oninput="formatarPlaca(this)">
+            </div>
+
+            <div class="field-group">
+                <label for="hora">Hora de Entrada</label>
+                <input type="text" id="editHora" class="hide inputs-fields" value="" oninput="formatarHoraMinuto(this)">
+                <input type="text" id="hora" data-index="new" class="inputs-fields" value="" data-horaatual="">
+            </div>
+
+            <button class="btn-register">Registar Veículo</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <div class="tableByRegister">
+            <ul class="list hide">
+                <li>Modelo do carro</li>
+                <li>Placa do carro</li>
+                <li>Hora de entrada</li>
+                <li>Finalizar saída</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="container-modal hide">
+        <h2>Calcula o preço</h2>
+        <div class="row headerForm">
+            <form action="" id="formModal">
+                <fieldset>
+                    <legend>Tipo de pagamento</legend>
+                    <div class="field-group">
+                        <div class="field">
+                            <input type="radio" id="diaria" name="opt" checked class="field-radio">
+                            <label for="diaria">Diária</label>
+                        </div>
+                        <div class="field">
+                            <input type="radio" id="plano" name="opt" class="field-radio">
+                            <label for="plano">Plano</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="box-ticket">
+                <span class="label-title">Ticket</span>
+                <div class="ticket">
+                    <span>1027</span>
+                </div>
+            </div>
+        </div>
+        <div class="row grid-modelo" data-id="">
+            <div class="modelo">
+                <span class="label-title">Modelo</span>
+                <span class="label-modelo">FOX</span>
+            </div>
+            <div class="placa">
+                <span class="label-title">Placa</span>
+                <span class="label-placa">AXD-3805</span>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="line">
+                <div class="title">
+                    <h3 class="title-entrada">Entrada</h3>
+                </div>
+                <div class="box">
+                    <span class="label-title">Data</span>
+                    <span>14/09/2023</span>
+                </div>
+                <div class="box">
+                    <span class="label-title">Hora</span>
+                    <span class="h-entrada" data-entrada="">12:38:09</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="line">
+                <div class="title">
+                    <h3 class="title-saida">Saída</h3>
+                </div>
+                <div class="box">
+                    <span class="label-title">Data</span>
+                    <span>14/09/2023</span>
+                </div>
+                <div class="box">
+                    <span class="label-title">Hora</span>
+                    <span class="h-saida" data-saida="">15:38:09</span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="line">
+                <div class="title">
+                    <h3 class="title-valor">Valor</h3>
+                </div>
+                <div class="box">
+                    <span class="label-title">Tempo de Permanência</span>
+                    <span class="tempo">00:32</span>
+                </div>
+                <div class="box">
+                    <span class="label-title">Valor a pagar</span>
+                    <span class="total">R$ 12,00</span>
+                </div>
+            </div>
+        </div>
+        <div class="btn-containers">
+            <button class="btn btn-cancelar" id="cancelar" onclick="closeModal(this);">Cancelar</button>
+            <button class="btn btn-finalizar" id="finalizar" data-id="">Finalizar</button>
+        </div>
+        <span class="close" onclick="closeModal(this);">x</span>
+    </div>
+
+    <div class="modal hide"></div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/script2.js"></script>
+</body>
+</html>

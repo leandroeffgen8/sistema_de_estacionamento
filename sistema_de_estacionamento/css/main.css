@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+/*
+font-family: 'Dancing Script', cursive;
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+body{
+    background: url('../images/bg.png') repeat top left;
+    font-family: 'Lato', sans-serif;
+}
+
+.hide{
+    display: none !important;
+}
+
+.container-fluid{
+    width: 100%;
+    background: lightblue;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.container.register{
+    background: #c2c2c2;
+    padding: 1.5rem;
+    border-radius: 3px;
+    margin-bottom: 2rem;
+}
+
+.container.edit{
+    background: #D4EDDA;
+}
+
+.container.edit .btn-register{
+    background: #95c895;
+}
+
+h1{
+    text-align: center;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #FFF;
+}
+
+h3.title-center{
+    text-align: center;
+}
+
+#formId{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+#formId .field-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+#formId .field-group label{
+    padding-bottom: 0.5rem;
+    color: #333;
+}
+
+#formId .field-group .inputs-fields{
+    border: 1px solid #e8e7e7;
+    padding: 0.8rem 1rem;
+    text-transform: uppercase;
+}
+
+input:focus{
+    outline: none;
+}
+
+.btn-register{
+    width: 40%;
+    height: 43px;
+    border: 1px solid #F4F4F4;
+    cursor: pointer;
+    background-color: lightblue;
+    color: #FFF;    
+}
+
+.btn-register:hover{
+    background-color: rgb(137, 182, 197);
+}
+
+.list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between; 
+    background: #898888;
+    color: #FFF;
+}
+
+.list li{
+    width: 25%;
+    border-right: 5px solid #FFF;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.list li:last-child{
+    border: 0;
+    text-align: center;
+}
+
+.modelsCars{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+    background: #cbc8c8;
+    transition: 0.3s;
+}
+
+.modelsCars span{
+    width: 25%;
+    padding: 0.5rem 1rem;
+    line-height: 1.8;
+    border-right: 5px solid #FFF;
+    text-transform: capitalize;
+}
+
+.modelsCars:nth-child(2n+2){
+    background: #dfdddd;
+}
+
+.modelsCars:hover,
+.modelsCars:nth-child(2n+2):hover{
+    background: rgb(164, 183, 190);
+}
+
+.modelsCars span:last-child{
+    text-align: center;
+    border: 0;
+}
+
+.btn-cars{
+    border: 0;
+    border-radius: 3px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    transition: 0.3s;
+    color: #FFF;
+}
+
+.btn-edit{
+    background: rgb(6, 115, 6);
+}
+
+.btn-exit{
+    background: rgb(243, 30, 30);
+}
+
+.btn-cars:hover{
+    opacity: 0.6;
+}
+
+.modal{
+    width: 100%;
+    height: 100%;  
+    background: rgba(0,0,0,0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 2;   
+}
+
+.container-modal{
+    max-width: 500px;
+    width: 100%;     
+    z-index: 99;
+    background: #FFF;
+    position: fixed;
+    left: 50%;   
+    top: 50%;
+    margin: -245px 0 0 -230px;  
+}
+
+.container-modal h2{
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    color: #FFF;
+    background-color: lightblue;
+}
+
+.container-modal .btn-containers,
+.container-modal .row{
+    padding: 0 1rem 0.8rem;
+}
+
+.headerForm{
+    display: flex;
+    justify-content: space-between;
+}
+
+#formModal{
+    width: 100%;
+}
+
+#formModal fieldset{
+    padding: 0.8rem;
+    margin-top: 0.65rem;
+    width: 90%;
+    border: 1px solid #F4F4F4;
+}
+
+#formModal legend{
+    font-size: 0.8rem;
+}
+
+#formModal .field-group{
+    display: flex;
+}
+
+#formModal .field-group .field{
+    width: 50%;
+}
+
+.headerForm .box-ticket{
+    width: 50%;
+}
+
+.label-title{
+    margin-bottom: 0.3rem;
+    display: block;
+    font-size: 0.8rem;
+}
+
+.label-modelo,
+.label-placa{
+    text-transform: uppercase;
+}
+
+.headerForm .ticket{
+    padding: 0.8rem;
+    border: 0;
+    background: #fbfbfb;
+    color: #333;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.grid-modelo{
+    display: flex;
+}
+
+.grid-modelo div{
+    width: 50%;
+}
+
+.grid-modelo div span:not(.label-title){
+    font-size: 0.7rem;
+    background: #fbfbfb;
+    padding: 0.3rem 0.5rem;
+    border: 1px solid #F4F4F4;
+    width: 80%;
+    display: block;
+}
+
+.row .line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #F4F4F4;
+    background: #fbfbfb;
+    padding: 0.8rem;
+}
+
+.row .line .title{  
+    display: block;
+    width: 20%;
+}
+
+.row .line .title h3{
+    color: #222;
+}
+
+.row .line .box{
+    display: flex;
+    flex-direction: column;  
+    width: 30%;
+}
+
+.row .line .box span:not(.label-title){
+    background: #FFF;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.3rem;
+}
+
+.row .line .box .total{
+    color: red;
+    font-weight: bold;
+}
+
+.btn-containers{
+    text-align: center;
+}
+
+.btn-containers .btn{
+    border: 0;
+    padding: 0.5rem 1rem;
+    color: #FFF;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-containers .btn.btn-cancelar{
+    background: lightblue;
+}
+
+.btn-containers .btn.btn-finalizar{
+    background: rgb(6, 115, 6);
+}
+
+.close{
+    position: absolute;
+    top: 13px;
+    right: 15px;
+    font-size: 1rem;
+    background: #FFF;
+    border-radius: 50%;
+    display: block;
+    text-align: center;
+    line-height: 1.6;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
