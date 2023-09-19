@@ -29,6 +29,21 @@ const excludeCarPlate = (index) => {
     setLocalStorage(dbPlate);
 }
 
+//Formata input campo - placa de veiculo
+const formatCarPlate = () => {
+    const cleanedValue = placa.value.replace(/[^a-zA-Z0-9]/g, '');
+
+    const letters = cleanedValue.slice(0, 3).toUpperCase();
+    const numbers = cleanedValue.slice(3, 7);
+   
+    const lettersPattern = /^[A-Z]{3}$/;
+    const numbersPattern = /^[0-9]{4}$/;
+    
+    if (lettersPattern.test(letters) && numbersPattern.test(numbers)) {
+        placa.value = `${letters}-${numbers}`;
+    }
+}
+
 //Mostra a hora no input hora de entrada
 const interval = setInterval(()  => {
     const date = new Date();
