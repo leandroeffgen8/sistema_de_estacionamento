@@ -26,12 +26,12 @@
 
             <div class="field-group">
                 <label for="placa">Placa do Veículo</label>
-                <input type="text" id="placa" data-index="new" class="inputs-fields" required oninput="formatarPlaca(this)">
+                <input type="text" id="placa" data-index="new" class="inputs-fields" required>
             </div>
 
             <div class="field-group">
                 <label for="hora">Hora de Entrada</label>
-                <input type="text" id="editHora" class="hide inputs-fields" value="" oninput="formatarHoraMinuto(this)">
+                <input type="text" id="editHora" class="hide inputs-fields" value="">
                 <input type="text" id="hora" data-index="new" class="inputs-fields" value="" data-horaatual="">
             </div>
 
@@ -131,16 +131,16 @@
             </div>
         </div>
         <div class="btn-containers">
-            <button class="btn btn-cancelar" id="cancelar" onclick="closeModal(this);">Cancelar</button>
+            <button class="btn btn-cancelar" id="cancelar">Cancelar</button>
             <button class="btn btn-finalizar" id="finalizar" data-id="">Finalizar</button>
         </div>
-        <span class="close" onclick="closeModal(this);">x</span>
+        <span class="close">x</span>
     </div>
 
     <div class="modal hide"></div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/script2.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
