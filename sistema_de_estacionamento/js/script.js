@@ -5,6 +5,9 @@ const placa = document.querySelector('#placa');
 const hora = document.querySelector('#hora');
 const register = document.querySelector('.btn-register');
 
+const tableByRegister = document.querySelector('.tableByRegister');
+const list = document.querySelector('.list');
+
 const getLocalStorage = () => JSON.parse(localStorage.getItem('placa')) ?? [];
 const setLocalStorage = (dbPlaca) => localStorage.setItem('placa', JSON.stringify(dbPlaca));
 
@@ -71,6 +74,7 @@ const savePlate = (e) => {
         }
     
         addCarPlate(client);
+        updateCar();
         clearFields();
     }
 
@@ -85,3 +89,39 @@ const clearFields = () => {
         field.value = '';
     })
 }
+
+//MONTA O HTML COM OS DADOS PREENCHIDOS
+const createRowsCars = (client) => {
+    const rows = document.createElement('section');
+    rows.classList.add('modelsCars');
+
+    rows.innerHTML = `
+        <span class="modelo">${client.modelo}</span>
+        <span class="placa">${client.placa}</span>
+        <span class="horario-entrada">${client.hora}</span>
+        <span class="btns-containers">
+            <button type="button" id="editar" class="btn-cars btn-edit">Editar</button>
+            <button type="button" id="saida" class="btn-cars btn-exit">Finalizar</button>
+        </span>
+    `;
+
+    list.classList.remove('hide');
+    tableByRegister.appendChild(rows);
+}
+
+//LIMPA A LINHA APÓS OS DADOS SEREM INSERIDOS - EVITA DUPLICAR DADOS
+const clearsRows = () => {
+    const rows = document.querySelectorAll('.modelsCars');
+    rows.forEach(row => {
+        row.parentElement.removeChild(row);
+    })
+}
+
+//MOSTRA UMA FRASE SE NÃO TIVER DADOS CADASTRADOS
+const updateCar = () => {
+    const dbPlate = getLocalStorage();
+    clearsRows();
+    dbPlate.forEach(createRowsCars)
+}
+
+updateCar();
