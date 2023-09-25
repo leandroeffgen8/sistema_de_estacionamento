@@ -66,17 +66,43 @@ const isValidFields = () => {
 const savePlate = (e) => {
     e.preventDefault();
 
+    let flag = false;
+
     if( isValidFields() ){
         const client = {
             modelo: modelo.value,
             placa: placa.value,
             hora: hora.value
         }
-    
-        addCarPlate(client);
-        updateCar();
-        clearFields();
+
+        const dbPlate = getLocalStorage();
+        const placaAdd = placa.value;
+
+        dbPlate.forEach(car => {            
+            if( placaAdd == car.placa ){
+                flag = true;
+            }
+        });
+
+        if( flag ){
+            Swal.fire({
+                icon: 'info',
+                title: 'Oops...',
+                html: `Ops.... essa placa de carro já foi registrada no pátio. Favor validar novamente!!!`
+            });
+            return false;
+        }else{
+            Swal.fire({
+                icon: 'success',
+                title: 'Seu cadastro foi realizado com sucesso!'                
+            });
+            addCarPlate(client);
+            updateCar();
+            clearFields();
+        }
     }
+
+    tableByRegister.querySelector('.title-center').classList.add('hide');
 
 }
 
@@ -121,7 +147,11 @@ const clearsRows = () => {
 const updateCar = () => {
     const dbPlate = getLocalStorage();
     clearsRows();
-    dbPlate.forEach(createRowsCars)
+    dbPlate.forEach(createRowsCars);
+
+    if(!document.querySelector('.modelsCars')){
+        tableByRegister.querySelector('.title-center').classList.remove('hide');
+    }
 }
 
 updateCar();
